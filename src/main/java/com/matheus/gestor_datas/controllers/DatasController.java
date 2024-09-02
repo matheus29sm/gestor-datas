@@ -20,17 +20,17 @@ public class DatasController {
     }
 
     @GetMapping("/inicial")
-    public LocalDate ExibeInicial(){
+    public LocalDate exibeInicial(){
         return datasService.getDataInicial();
     }
 
     @GetMapping("/final")
-    public LocalDate ExibeFinal(){
+    public LocalDate exibeFinal(){
         return datasService.getDataFinal();
     }
 
     @GetMapping
-    public LocalDate[] ExibeDatas(){
+    public LocalDate[] exibeDatas(){
         LocalDate[] datas = new LocalDate[2];
         datas[0] = datasService.getDataInicial();
         datas[1] = datasService.getDataFinal(); 
@@ -43,4 +43,10 @@ public class DatasController {
         datasService.setDataInicial(novaDataInicial);
         return "A data inicial foi atualizada para: " + novaDataInicial;
     }
+
+    @GetMapping("/dias/quantidade")
+    public Long buscaQuantidadeDias() {
+        return datasService.calcularDiasEntreDatas();
+    }
+
 }
