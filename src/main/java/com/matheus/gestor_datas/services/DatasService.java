@@ -27,6 +27,9 @@ public class DatasService {
     }
 
     public void setDataInicial(LocalDate dataInicial){
+        if (dataInicial.isAfter(this.dataFinal)) {
+            throw new IllegalArgumentException("A data inicial não pode ser posterior à data final.");
+        }
         this.dataInicial = dataInicial;
     }
 

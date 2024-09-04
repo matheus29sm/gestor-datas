@@ -39,9 +39,14 @@ public class DatasController {
 
     @PostMapping("/atualiza")
     public String atualizaDataInicial(@RequestBody Integer[] dataArray) {
-        LocalDate novaDataInicial = LocalDate.of(dataArray[0], dataArray[1], dataArray[2]);
-        datasService.setDataInicial(novaDataInicial);
-        return "A data inicial foi atualizada para: " + novaDataInicial;
+        try{
+            LocalDate novaDataInicial = LocalDate.of(dataArray[0], dataArray[1], dataArray[2]);
+            datasService.setDataInicial(novaDataInicial);
+            return "A data inicial foi atualizada para: " + novaDataInicial;
+        } catch(IllegalArgumentException e){
+            return "Error: " + e.getMessage();
+
+        }
     }
 
     @GetMapping("/dias/quantidade")
