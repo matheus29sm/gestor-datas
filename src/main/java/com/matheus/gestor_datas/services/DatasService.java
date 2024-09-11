@@ -37,4 +37,7 @@ public class DatasService {
         return ChronoUnit.DAYS.between(dataInicial, dataFinal);
     }
     
+    public void atualizaDataFinal(){
+        this.dataFinal = LocalDate.now();
+    }
 }

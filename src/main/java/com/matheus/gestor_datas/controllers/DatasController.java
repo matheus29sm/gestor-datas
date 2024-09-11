@@ -45,7 +45,6 @@ public class DatasController {
             return "A data inicial foi atualizada para: " + novaDataInicial;
         } catch(IllegalArgumentException e){
             return "Error: " + e.getMessage();
-
         }
     }
 
